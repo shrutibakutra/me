@@ -1,0 +1,23 @@
+
+//screen size
+$xxsmallScreen: 567px;
+$xsmallcreen: 780px;
+$smallScreen: 1000px;
+$mediumScreen: 1220px;
+$largeScreen: 1300px;
+$xlargeScreen: 1440px;
+
+$gridSize: 8px;
+
+.cta-button {
+    border: 1px solid $color--blue !important;
+    border-radius: 2px !important;
+    height: $gridSize * 5;
+    width: $gridSize * 21;
+    color: $color--gray800;
+
+    @media (max-width: $smallScreen) {
+        width: $gridSize * 14;
+        font-size: 2 * $gridSize;
+    }
+}

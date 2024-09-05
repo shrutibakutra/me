@@ -1,0 +1,82 @@
+@import "../../styles/colors.scss";
+@import "../../styles/styles.scss";
+
+.aboutme {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $color--gray100;
+
+  &__content {
+    width: 50%;
+    order: 1;
+
+    &__inside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      padding: 0 80px;
+
+      h1 {
+          color: $color--blue;
+          font-size: 56px !important;
+      }
+
+      &__details {
+        margin-bottom: $gridSize * 2;
+        div{
+            margin-top: 24px;
+            text-align: center;
+        }
+      }
+    }
+  }
+
+  &__me-img {
+    width: 50%;
+    order: 2;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: $smallScreen) {
+    flex-direction: column;
+
+    &__content {
+        width: 100%;
+        order: 2;
+        margin: 16px 0;
+
+        &__inside {
+          padding: 0 40px;
+
+          h1 {
+            font-size: 32px !important;
+          }
+        }
+     }
+
+     &__me-img {
+        width: 100%;
+        order: 1;
+        height: 400px;
+        overflow: hidden; 
+        position: relative;
+
+        img {
+          width: 100%;
+          height: auto; 
+          object-fit: cover;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -40%);
+        }
+     }
+  }
+}
