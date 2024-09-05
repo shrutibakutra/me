@@ -24,8 +24,14 @@
           font-size: 56px !important;
       }
 
+      &__dev {
+        font-weight: 700;
+        font-size: 20px;
+      }
+
       &__details {
         margin-bottom: $gridSize * 2;
+        font-size: 18px;
         div{
             margin-top: 24px;
             text-align: center;

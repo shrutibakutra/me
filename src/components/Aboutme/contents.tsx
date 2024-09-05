@@ -4,7 +4,7 @@ const Contents = () => {
     return (
         <div className="aboutme__content__inside">
             <h1>Shruti Bakutra</h1>
-            <div>
+            <div className="aboutme__content__inside__dev">
                 Software Developer
             </div>
             <div className="aboutme__content__inside__details">

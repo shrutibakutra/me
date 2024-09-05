@@ -5,6 +5,7 @@ import Header from './components/Header/header.tsx';
 import Hobbies from './components/Hobbies/hobbies';
 import Portfolio from './components/Portfolio/portfolio';
 import Skills from './components/Skills/skills';
+import "./App.css";
 
 function App() {
   return (

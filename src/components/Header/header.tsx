@@ -9,6 +9,7 @@ import {
   NavbarToggler,
   Collapse,
 } from 'reactstrap';
+import "./header.scss";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,7 @@ const Header = () => {
     sections.forEach(id => {
       const element = document.getElementById(id);
       if (element) {
-        element.style.scrollMarginTop = '70px'; // Adjust this value based on your navbar height
+        element.style.scrollMarginTop = '80px';
       }
     });
   };
@@ -29,13 +30,11 @@ const Header = () => {
     adjustScroll();
   }, []);
 
-
-
   return (
     <Navbar color="light" light expand="md">
       <NavbarBrand href="/">SHRUTI BAKUTRA</NavbarBrand>
       <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
+      <Collapse isOpen={isOpen} navbar className='navbar-header'>
         <Nav className="ml-auto" navbar>
         <NavItem>
             <NavLink href="#about">About</NavLink>

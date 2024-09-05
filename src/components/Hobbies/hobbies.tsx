@@ -9,7 +9,7 @@ const Hobbies = () => {
     return (
         <div className="hobbies">
             <div className="hobbies__title">
-                Like to do <span className="line"></span>
+                Like to do
             </div>
             <div className="hobbies__list">
                 <div className="hobbies__list__box">

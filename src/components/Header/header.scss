@@ -1,0 +1,10 @@
+@import "../../styles/colors.scss";
+@import "../../styles/styles.scss";
+
+.navbar-header {
+    margin-left: $gridSize * 4;
+
+    .nav-link {
+        color: $color--gray800;
+    }
+}
