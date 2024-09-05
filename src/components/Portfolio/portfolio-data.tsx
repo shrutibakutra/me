@@ -37,7 +37,7 @@ export const data = [
     },
     {
         name : "Burger Builder",
-        introduction: "A platform for making a burger where users can choose burgers from the menu, add to cart and make payments",
+        introduction: "A platform with an interactive tool to make burgers with various toppings using Drag & Drop, choose burgers from the menu, add to cart and make payments.",
         techStack: ["ReactJS", "TypeScript", "JavaScript", "HTML", "CSS3", "RESTful API"],
         link:"https://github.com/shrutibakutra/Burger-Builder" 
     }
