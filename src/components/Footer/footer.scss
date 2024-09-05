@@ -1,0 +1,16 @@
+@import "../../styles/colors.scss";
+@import "../../styles/styles.scss";
+
+.footer {
+    padding: $gridSize * 6;
+    height: $gridSize * 10;
+    background-color: $color--gray10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+        color: $color--gray800;
+    }
+}

@@ -9,7 +9,7 @@ export const data = [
         name: "Terrace Metrics",
         introduction:"Health assessments product for schools and workplaces, providing data-driven insights to support mental health and well-being.",
         techStack: ["ReactJS", "MongoDB", "NodeJS", "JavaScript", "Actionally"],
-        link:"https://www.terracemetrics.com/" 
+        link:"https://www.terracemetrics.org/" 
     },
     {
         name :"Snapeda Plugin",

@@ -4,7 +4,7 @@ import { data } from "./portfolio-data";
 
 const Portfolio = () => {
     return (
-        <div className="portfolio">
+        <div className="portfolio"  id="portfolio">
             <div className="portfolio__title">Portfolio</div>
             <div className="portfolio__list">
                 {data.map((project, index) => (

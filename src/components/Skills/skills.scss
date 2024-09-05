@@ -6,7 +6,30 @@
 
   &__title {
     font-size: $gridSize * 6;
+    margin-bottom: $gridSize * 4;
+
+
+    @media (max-width: $xsmallcreen) {
+      font-size: $gridSize * 4;
   }
+  }
+
+  &__title::after {
+    content: '';
+    display: inline-block;
+    margin-left: $gridSize * 3;
+    vertical-align: middle;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, $color--gray600 0%, $color--blue 50%, #fff 100%);
+    opacity: 1;
+    animation: fadeInLine 2s forwards;
+    width: $gridSize * 70;
+
+    @media (max-width: $xsmallcreen) {
+      width: $gridSize * 24;
+  }
+} 
 
   &__nav-flex {
     display: grid;

@@ -1,0 +1,88 @@
+@import "../../styles/colors.scss";
+@import "../../styles/styles.scss";
+
+.contact {
+    text-align: end;
+    padding: $gridSize * 6;
+
+    &__title {
+        font-size: $gridSize * 6;
+        margin-bottom: $gridSize * 4;
+
+        @media (max-width: $xsmallcreen) {
+            font-size: $gridSize * 4;
+        }
+    }
+
+    &__title::before {
+        content: '';
+        display: inline-block;
+        margin-right: $gridSize * 3;
+        vertical-align: middle;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to left, $color--gray600 0%, $color--blue 50%, #fff 100%);
+        opacity: 1;
+        animation: fadeInLine 2s forwards;
+        width: $gridSize * 70;
+
+        @media (max-width: $smallScreen) {
+            width: $gridSize * 56;
+        }
+
+        @media (max-width: $xsmallcreen) {
+            width: $gridSize * 24;
+        }
+    }   
+
+    &__content {
+        text-align: start;
+        display: flex;
+        justify-content: space-between;
+
+        &__text {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        &__details {
+            flex: 0 0 45%;
+            max-width: 45%;
+            line-height: 1.8;
+
+            &__title {
+                font-size: $gridSize * 3;
+                font-weight: 500;
+            }
+
+            a {
+                color: $color--blue;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            p {
+                margin: 0.5rem 0;
+                font-size: $gridSize * 2;
+            }
+        }
+
+        @media (max-width: $xsmallcreen) {
+            display: block;
+           
+            &__text {
+                max-width: 100%;
+            }
+            &__details {
+                max-width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: $xsmallcreen) {
+        padding: $gridSize;
+        margin-top: $gridSize * 3;
+    }
+}

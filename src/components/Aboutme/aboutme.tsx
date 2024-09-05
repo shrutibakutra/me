@@ -5,7 +5,7 @@ import Contents from "./contents";
 
 const AboutMe = () => {
     return (
-        <div className="aboutme">
+        <div className="aboutme" id="about">
             <div className="aboutme__content"> 
                 <Contents />
             </div>

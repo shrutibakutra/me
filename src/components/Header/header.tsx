@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import {
   Navbar,
@@ -14,6 +14,22 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const adjustScroll = () => {
+    const sections = ['about', 'skills', 'portfolio', 'contact'];
+  
+    sections.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.style.scrollMarginTop = '70px'; // Adjust this value based on your navbar height
+      }
+    });
+  };
+  
+  useEffect(() => {
+    adjustScroll();
+  }, []);
+
+
 
   return (
     <Navbar color="light" light expand="md">
@@ -21,17 +37,17 @@ const Header = () => {
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
-          <NavItem>
-            <NavLink href="/about">About</NavLink>
+        <NavItem>
+            <NavLink href="#about">About</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/skills">Skills</NavLink>
+            <NavLink href="#skills">Skills</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/portfolio">Portfolio</NavLink>
+            <NavLink href="#portfolio">Portfolio</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/contact">Contact</NavLink>
+            <NavLink href="#contact">Contact</NavLink>
           </NavItem>
         </Nav>
       </Collapse>

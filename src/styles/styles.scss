@@ -21,3 +21,7 @@ $gridSize: 8px;
         font-size: 2 * $gridSize;
     }
 }
+
+html {
+    scroll-behavior: smooth;
+}
