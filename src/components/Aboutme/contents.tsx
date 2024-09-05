@@ -5,7 +5,7 @@ const Contents = () => {
         <div className="aboutme__content__inside">
             <h1>Shruti Bakutra</h1>
             <div className="aboutme__content__inside__dev">
-                Software Developer
+                Web Developer
             </div>
             <div className="aboutme__content__inside__details">
                 <div>
