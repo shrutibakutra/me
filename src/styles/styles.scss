@@ -25,6 +25,11 @@ $gridSize: 8px;
         width: $gridSize * 14;
         font-size: 2 * $gridSize;
     }
+
+    @media (max-width: $xxsmallScreen) {
+            width: 108px;
+            font-size: 16px;
+        }
 }
 
 html {

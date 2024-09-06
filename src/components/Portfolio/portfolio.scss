@@ -33,6 +33,10 @@
         @media (max-width: $xsmallcreen) {
             width: $gridSize * 26;
         }
+
+        @media (max-width: $xxsmallScreen) {
+            width: $gridSize * 18;
+        }
     }
 
     &__list {

@@ -28,6 +28,9 @@
 
     @media (max-width: $xsmallcreen) {
       width: $gridSize * 24;
+    }
+    @media (max-width: $xxsmallScreen) {
+      width: $gridSize * 18;
   }
 } 
 
@@ -65,8 +68,14 @@
         padding: $gridSize;
         border-radius: 2px;
         width: 40%;
-        background: linear-gradient(to right, $color--blue 0%, 50%, #fff 100%);
-        color: #fff;
+        // background: linear-gradient(to right, $color--blue 0%, 50%, #fff 100%);
+        color: $color--gray800;
+        display: flex;
+
+        div {
+          margin-right: $gridSize;
+        }
+
       }
       li:nth-of-type(1) {
         animation-delay: 0.1s;

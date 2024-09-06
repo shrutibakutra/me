@@ -33,6 +33,9 @@
         @media (max-width: $xsmallcreen) {
             width: $gridSize * 24;
         }
+        @media (max-width: $xxsmallScreen) {
+            width: $gridSize * 18;
+        }
     }   
 
     &__content {

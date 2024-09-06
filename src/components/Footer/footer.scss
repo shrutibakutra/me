@@ -13,4 +13,9 @@
         text-decoration: none;
         color: $color--gray800;
     }
+
+    @media (max-width: $xxsmallScreen) {
+        padding: $gridSize;
+    }
+
 }

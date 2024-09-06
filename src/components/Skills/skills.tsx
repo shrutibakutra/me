@@ -50,7 +50,13 @@ const Skills = () => {
                             <Col sm="12">
                                 <ul className="skills__nav-flex__ul">
                                     {skillsData[skillCategory as SkillCategory].map((skill, idx) => (
-                                        <li key={idx} className="skills__nav-flex__ul__li">{skill}</li>
+                                        <li key={idx} className="skills__nav-flex__ul__li">
+                                             <div> &#10095;</div>
+                                             <div> {skill}</div>
+
+                                     
+                                     </li>
+                                        
                                     ))}
                                 </ul>
                             </Col>
