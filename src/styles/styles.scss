@@ -16,6 +16,11 @@ $gridSize: 8px;
     width: $gridSize * 21;
     color: $color--gray800;
 
+    &:hover {
+        background-color: $color--blue;
+        color: $color--white;
+    }
+
     @media (max-width: $smallScreen) {
         width: $gridSize * 14;
         font-size: 2 * $gridSize;

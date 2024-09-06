@@ -1,7 +1,7 @@
 import React from "react"
 import "./hobbies.scss";
 import Hiking from "../../assests/hiking.jpg";
-import Climbing from "../../assests/climbing.jpg";
+import Climbing from "../../assests/climbing3.jpg";
 import Reading from "../../assests/reading.jpg";
 import Travelling from "../../assests/travelling.jpg";
 

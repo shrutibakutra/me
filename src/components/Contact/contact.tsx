@@ -5,7 +5,7 @@ const Contact = () => {
     return (
         <div className="contact" id="contact">
             <div className="contact__title">
-                Reach Me
+                Get in Touch
             </div>
             <div className="contact__content">
                 <div className="contact__content__text">

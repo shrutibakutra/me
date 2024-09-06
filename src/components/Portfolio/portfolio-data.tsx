@@ -1,27 +1,44 @@
+import tm1 from "../../assests/tm-images/tm_1.jpg";
+import tm2 from "../../assests/tm-images/tm_2.jpg";
+import tm3 from "../../assests/tm-images/tm_3.jpg";
+import TM4 from "../../assests/tm-images/tm_4.mp4";
+import snap_1 from "../../assests/snapeda/snap_1.jpg";
+import snap_2 from "../../assests/snapeda/snap_2.jpg";
+import snap_3 from "../../assests/snapeda/snap_3.jpg";
+import snap_4 from "../../assests/snapeda/snap_4.jpg";
+
+
+
 export const data = [
-    {
-        name: "DealMtrx",
-        introduction:"DealMtrx a product by PE Connection,  to simplify the process for Borrowers to grow and manage Lender relationships.",
-        techStack: ["ReactJS", "TypeScript", "MongoDB", "Docker", "Cypress", "JavaScript"],
-        link:"https://www.dealmtrx.com/"
-    },
     {
         name: "Terrace Metrics",
         introduction:"Health assessments product for schools and workplaces, providing data-driven insights to support mental health and well-being.",
         techStack: ["ReactJS", "MongoDB", "NodeJS", "JavaScript", "Actionally"],
-        link:"https://www.terracemetrics.org/" 
+        link:"https://app.terracemetrics.org",
+        knowMore:[tm1,tm2,tm3,TM4]
+    },
+    {
+        name: "DealMtrx",
+        start: true,
+        introduction:"DealMtrx a product by PE Connection,  to simplify the process for Borrowers to grow and manage Lender relationships.",
+        techStack: ["ReactJS", "TypeScript", "MongoDB", "Docker", "Cypress", "JavaScript"],
+        link:"https://app.dealmtrx.com/",
+        knowMore:[]
     },
     {
         name :"Snapeda Plugin",
+        start: true,
         introduction:"A JavaScript Plugin for the 'one-for-all' SnapeEDA model to be implemented in their partners' websites via a using Google Tag Manager.",
-        techStack: ["Django", "RESTful API","SQLite3", "HTML", "CSS"],
-        link:"https://www.snapeda.com/" 
+        techStack: ["ReactJS" ,"Django", "RESTful API", "HTML", "CSS"],
+        link:"https://www.rs-online.com/designspark/snapeda-parts-finder",
+        knowMore:[snap_1,snap_2,snap_3,snap_4]
     },
     {
         name : "E-commerce App",
         introduction: "An eBay-like e-commerce auction site",
         techStack: ["ReactJS", "Python", "Django", "PostgreSQL", "RESTful API"],
-        link:"https://github.com/shrutibakutra/Ecommerce" 
+        link:"https://github.com/shrutibakutra/Ecommerce",
+        
     },
     {
         name : "Sociallize",
