@@ -1,20 +1,28 @@
 {
   "files": {
-    "main.css": "/me/static/css/main.b1f76753.css",
-    "main.js": "/me/static/js/main.2f46958f.js",
+    "main.css": "/me/static/css/main.cdae4397.css",
+    "main.js": "/me/static/js/main.bac7f379.js",
     "static/js/453.5783c3fe.chunk.js": "/me/static/js/453.5783c3fe.chunk.js",
     "static/media/shruti.jpg": "/me/static/media/shruti.df3fddac9b5495b06493.jpg",
-    "static/media/climbing.jpg": "/me/static/media/climbing.b43211b03e4b4171dc71.jpg",
+    "static/media/tm_1.jpg": "/me/static/media/tm_1.4483370bd713e0e81c70.jpg",
+    "static/media/tm_3.jpg": "/me/static/media/tm_3.ee5699fd4136ed6d7c79.jpg",
+    "static/media/tm_4.mp4": "/me/static/media/tm_4.5dff28d09300de326454.mp4",
+    "static/media/tm_2.jpg": "/me/static/media/tm_2.75d820d1dcff792fd73e.jpg",
+    "static/media/snap_1.jpg": "/me/static/media/snap_1.7f31699071a7db367f35.jpg",
+    "static/media/snap_4.jpg": "/me/static/media/snap_4.5ad804d9d64748f718af.jpg",
+    "static/media/snap_3.jpg": "/me/static/media/snap_3.1b246a7eb52d67c591ea.jpg",
+    "static/media/snap_2.jpg": "/me/static/media/snap_2.28b488e9c221a7efe6a6.jpg",
     "static/media/reading.jpg": "/me/static/media/reading.91012c4d7a4c5edbecfa.jpg",
     "static/media/travelling.jpg": "/me/static/media/travelling.91f22196354ab3910418.jpg",
     "static/media/hiking.jpg": "/me/static/media/hiking.60727387435b33441c49.jpg",
+    "static/media/climbing3.jpg": "/me/static/media/climbing3.0783ee265d680d433a46.jpg",
     "index.html": "/me/index.html",
-    "main.b1f76753.css.map": "/me/static/css/main.b1f76753.css.map",
-    "main.2f46958f.js.map": "/me/static/js/main.2f46958f.js.map",
+    "main.cdae4397.css.map": "/me/static/css/main.cdae4397.css.map",
+    "main.bac7f379.js.map": "/me/static/js/main.bac7f379.js.map",
     "453.5783c3fe.chunk.js.map": "/me/static/js/453.5783c3fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1f76753.css",
-    "static/js/main.2f46958f.js"
+    "static/css/main.cdae4397.css",
+    "static/js/main.bac7f379.js"
   ]
 }
