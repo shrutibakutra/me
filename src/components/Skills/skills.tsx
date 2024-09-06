@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Col, Nav, NavItem, NavLink, Row, TabContent, TabPane } from "reactstrap";
 import classnames from 'classnames';
 import "./skills.scss";

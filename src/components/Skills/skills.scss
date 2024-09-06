@@ -68,11 +68,17 @@
         color: $color--gray800;
         display: flex;
         box-shadow: 0 2px 4px rgba(50, 50, 93, .1);
-
-        
         animation: fadeInUp 0.5s forwards;
         opacity: 0;        
         transform: translateY(-200px);
+        transition: transform 1s;
+
+        &:hover{
+          background: linear-gradient(to right, $color--blue 0%, 50%, #fff 100%);
+          transform: translateX(-5px) !important;
+          box-shadow: 0 4px 8px rgba(50, 50, 93, 0.2);
+        }
+
         &__arrow {
           background-color: $color--blue;
           margin: -8px 8px -8px 0;
@@ -82,11 +88,10 @@
           align-items: center;
           color: #fff;
         }
-
       }
-      
+
       li:nth-of-type(1) {
-        animation-delay: 0.1s;
+        animation-delay: 0.7s;
       }
       li:nth-of-type(2) {
         animation-delay: 0.3s;
@@ -130,4 +135,3 @@
     }
   }
 }
-

@@ -56,41 +56,41 @@ const Portfolio = () => {
                             <button
                                 className="portfolio__item-link"
                                 onClick={() => openModal(project.knowMore)}>
-                                Know More
+                                Work Samples
                             </button>
                         )}
                     </div>
                 ))}
             </div>
             {isModalOpen && (
-    <div className={`modal ${isModalOpen ? "open" : ""}`}>
-        <div className="modal__content">
-            <button className="modal__close" onClick={closeModal}>
-                &times;
-            </button>
-            {activeProject.length > 0 && (
-                <div className="modal__media">
-                    {activeProject[activeIndex].endsWith(".mp4") ? (
-                        <video controls className="modal__media-item" src={activeProject[activeIndex]} />
-                    ) : (
-                        <img className="modal__media-item" src={activeProject[activeIndex]} alt={`Project media ${activeIndex + 1}`} />
-                    )}
-                    {activeProject.length > 1 && (
-                        <>
-                            <button className="modal__prev" onClick={prevSlide}>
-                                &#10094;
-                            </button>
-                            <button className="modal__next" onClick={nextSlide}>
-                                &#10095;
-                            </button>
-                        </>
-                    )}
+                <div className={`modal ${isModalOpen ? "open" : ""}`}>
+                    <div className="modal__content">
+                        <button className="modal__close" onClick={closeModal}>
+                            &times;
+                        </button>
+                        {activeProject.length > 0 && (
+                            <div className="modal__media">
+                                {activeProject[activeIndex].endsWith(".mp4") ? (
+                                    <video controls className="modal__media-item" src={activeProject[activeIndex]} />
+                                ) : (
+                                    <img className="modal__media-item" src={activeProject[activeIndex]} alt={`Project media ${activeIndex + 1}`} />
+                                )}
+                                {activeProject.length > 1 && (
+                                    <>
+                                        <button className="modal__prev" onClick={prevSlide}>
+                                            &#10094;
+                                        </button>
+                                        <button className="modal__next" onClick={nextSlide}>
+                                            &#10095;
+                                        </button>
+                                    </>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                    <div className="modal__overlay" onClick={closeModal}></div>
                 </div>
             )}
-        </div>
-        <div className="modal__overlay" onClick={closeModal}></div>
-    </div>
-)}
 
         </div>
     );
