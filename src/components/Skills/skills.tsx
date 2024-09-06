@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Col, Nav, NavItem, NavLink, Row, TabContent, TabPane } from "reactstrap";
 import classnames from 'classnames';
 import "./skills.scss";
@@ -22,16 +22,17 @@ const Skills = () => {
             setActiveTab(tab);
         }
     };
+
     return (
         <div className="skills" id="skills">
             <div className="skills__title">
                 My Skills
             </div>
             <Nav pills>
-                <div className="skills__nav-flex">
+                <div className="skills__nav-flex"  >
                     {Object.keys(skillsData).map((skillCategory) => (
-                        <div>
-                            <NavItem key={skillCategory} className="skills__nav-flex__nav-item">
+                        <div key={skillCategory}>
+                            <NavItem className="skills__nav-flex__nav-item">
                                 <NavLink
                                     className={classnames([{ active: activeTab === skillCategory }, "cta-button"])}
                                     onClick={() => toggle(skillCategory as SkillCategory)}
@@ -43,20 +44,17 @@ const Skills = () => {
                     ))}
                 </div>
             </Nav>
-            <TabContent activeTab={activeTab}>
+            <TabContent activeTab={activeTab} >
                 {Object.keys(skillsData).map((skillCategory) => (
                     <TabPane tabId={skillCategory} key={skillCategory}>
                         <Row>
-                            <Col sm="12">
-                                <ul className="skills__nav-flex__ul">
+                            <Col sm="12" >
+                                <ul className="skills__nav-flex__ul" id={`skills-${skillCategory}`}>
                                     {skillsData[skillCategory as SkillCategory].map((skill, idx) => (
                                         <li key={idx} className="skills__nav-flex__ul__li">
-                                             <div> &#10095;</div>
-                                             <div> {skill}</div>
-
-                                     
-                                     </li>
-                                        
+                                            <div className="skills__nav-flex__ul__li__arrow"> &#10095;</div>
+                                            <div>{skill}</div>
+                                        </li>
                                     ))}
                                 </ul>
                             </Col>
@@ -65,6 +63,7 @@ const Skills = () => {
                 ))}
             </TabContent>
         </div>
-    )
-}
+    );
+};
+
 export default Skills;
