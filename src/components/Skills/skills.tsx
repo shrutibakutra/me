@@ -4,10 +4,10 @@ import classnames from 'classnames';
 import { useInView, InView } from "react-intersection-observer";
 import "./skills.scss";
 
-type SkillCategory = 'Programming' | 'Front-End ' | 'Back-End ' | 'Databases' | 'Tools' | 'Soft Skills';
+type SkillCategory = 'Languages' | 'Front-End ' | 'Back-End ' | 'Databases' | 'Tools' | 'Soft Skills';
 
 const skillsData: Record<SkillCategory, string[]> = {
-    "Programming": ["JavaScript", "Python", "SQL"],
+    "Languages": ["JavaScript", "Python", "SQL"],
     "Front-End ": ["React", "HTML", "CSS", "JavaScript"],
     "Back-End ": ["Node.js", "Express", "Django"],
     "Databases": ["MySQL", "PostgreSQL", "MongoDB", "SQLite"],
@@ -16,10 +16,11 @@ const skillsData: Record<SkillCategory, string[]> = {
 };
 
 const Skills = () => {
-    const [activeTab, setActiveTab] = useState<SkillCategory>('Programming');
+    const [activeTab, setActiveTab] = useState<SkillCategory>('Languages');
 
     const { ref } = useInView({
         threshold: 0,
+        triggerOnce: true
     });
 
     const toggle = (tab: SkillCategory) => {
@@ -29,7 +30,7 @@ const Skills = () => {
     };
 
     const Component = ({ children }: any) => (
-        <InView>
+        <InView triggerOnce>
             {({ inView, ref, entry }) => (
                 <div ref={ref}>
                     {children}
@@ -44,7 +45,7 @@ const Skills = () => {
                 My Skills
             </div>
             <Nav pills>
-                <div className="skills__nav-flex" ref={ref} >
+                <div className="skills__nav-flex">
                     {Object.keys(skillsData).map((skillCategory) => (
                         <div key={skillCategory}>
                             <NavItem className="skills__nav-flex__nav-item">
@@ -63,7 +64,9 @@ const Skills = () => {
                 {Object.keys(skillsData).map((skillCategory) => (
                     <TabPane tabId={skillCategory} key={skillCategory}>
                         <Row>
-                            <Col sm="12" >
+                            <Col sm="12"  >
+                            <div  ref={ref}>
+
                                 <ul className="skills__nav-flex__ul" id={`skills-${skillCategory}`}>
                                     {skillsData[skillCategory as SkillCategory].map((skill, idx) => (
                                         <Component>
@@ -74,6 +77,8 @@ const Skills = () => {
                                         </Component>
                                     ))}
                                 </ul>
+                            </div>
+
                             </Col>
                         </Row>
                     </TabPane>

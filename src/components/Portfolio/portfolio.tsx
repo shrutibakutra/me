@@ -34,7 +34,6 @@ const Portfolio = () => {
                     <div key={index} className="portfolio__item">
                         <div className="portfolio__item-flex">
                             <h3 className="portfolio__item-title">{project.name}</h3>
-                            {project.start && <div className="star"></div>}
                         </div>
                         <p className="portfolio__item-intro">{project.introduction}</p>
                         <div className="portfolio__item-techstack">
