@@ -59,6 +59,15 @@ const Portfolio = () => {
                                 Work Samples
                             </button>
                         )}
+                         {project?.knowMoreLink && (
+                            <button
+                                className="portfolio__item-link"
+                                onClick={()=> window.open(project?.knowMoreLink, "_blank")}
+                                >
+                                Work Samples
+                            </button>
+                        )}
+                        
                     </div>
                 ))}
             </div>

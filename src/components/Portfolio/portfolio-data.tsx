@@ -23,7 +23,7 @@ export const data = [
         introduction:"DealMtrx a product by PE Connection,  to simplify the process for Borrowers to grow and manage Lender relationships.",
         techStack: ["ReactJS", "TypeScript", "MongoDB", "Docker", "Cypress", "JavaScript"],
         link:"https://app.dealmtrx.com/",
-        knowMore:[]
+        knowMoreLink:"https://gist.github.com/shrutibakutra/ab8b98483c9ea97db5caf2a874caa149"
     },
     {
         name :"Snapeda Plugin",
@@ -38,7 +38,7 @@ export const data = [
         introduction: "An eBay-like e-commerce auction site",
         techStack: ["ReactJS", "Python", "Django", "PostgreSQL", "RESTful API"],
         link:"https://github.com/shrutibakutra/Ecommerce",
-        
+        knowMoreLink:"https://ecommerce-app-4ez1.onrender.com/"
     },
     {
         name : "Sociallize",
