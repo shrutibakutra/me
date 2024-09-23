@@ -64,9 +64,8 @@ const Skills = () => {
                 {Object.keys(skillsData).map((skillCategory) => (
                     <TabPane tabId={skillCategory} key={skillCategory}>
                         <Row>
-                            <Col sm="12"  >
-                            <div  ref={ref}>
-
+                            <Col sm="12">
+                            <div ref={ref}>
                                 <ul className="skills__nav-flex__ul" id={`skills-${skillCategory}`}>
                                     {skillsData[skillCategory as SkillCategory].map((skill, idx) => (
                                         <Component>
@@ -77,12 +76,12 @@ const Skills = () => {
                                         </Component>
                                     ))}
                                 </ul>
-                            </div>
-
+                                </div>
                             </Col>
                         </Row>
                     </TabPane>
                 ))}
+                <div></div>
             </TabContent>
         </div>
     );

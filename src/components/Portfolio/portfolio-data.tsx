@@ -11,6 +11,12 @@ import snap_4 from "../../assests/snapeda/snap_4.jpg";
 
 export const data = [
     {
+        name: "Thriill App",
+        introduction:"I designed and developed the dynamic landing page for Thriilll, a modern music learning platform, using React.js with GTM integration and Prerendering for optimized SEO. Featuring captivating animations with tsParticles, the page offers a sleek, immersive experience. It includes smooth scroll-based interactions, vibrant visuals, and engaging CTAs, all while being fully responsive across devices.",
+        techStack: ["ReactJS", "tsParticles", "prerender", "Google Tag Manager"],
+        link:"https://shrutibakutra.github.io/ThriillApp/",
+    },
+    {
         name: "Terrace Metrics",
         introduction:"Health assessments product for schools and workplaces, providing data-driven insights to support mental health and well-being.",
         techStack: ["ReactJS", "MongoDB", "NodeJS", "JavaScript", "Actionally"],

@@ -70,8 +70,7 @@
         box-shadow: 0 2px 4px rgba(50, 50, 93, .1);
         animation: fadeInUp 2s forwards;
         opacity: 0;        
-        transform: translateY(-200px) ;
-        // transition: transform 2s !important;
+        transform: translateX(-200px) ;
 
         &:hover{
           background: linear-gradient(to right, $color--blue 0%, 50%, #fff 100%);
