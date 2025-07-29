@@ -14,7 +14,8 @@ export const data = [
         name: "Thriill App",
         introduction:"I designed and developed the dynamic landing page for Thriilll, a modern music learning platform, using React.js with GTM integration and Prerendering for optimized SEO. Featuring captivating animations with tsParticles, the page offers a sleek, immersive experience. It includes smooth scroll-based interactions, vibrant visuals, and engaging CTAs, all while being fully responsive across devices.",
         techStack: ["ReactJS", "tsParticles", "prerender", "Google Tag Manager"],
-        link:"https://shrutibakutra.github.io/ThriillApp/",
+        // link:"https://shrutibakutra.github.io/ThriillApp/",
+        link: "https://thriill.com/"
     },
     {
         name: "Terrace Metrics",
