@@ -20,7 +20,7 @@ const Contents = () => {
             </div>
             <div>
                 <a
-                    href="https://drive.google.com/file/d/1ixMTkoQE5dwKQaHvmJh__Cjf_hLaq0iK/view?usp=sharing"
+                    href="https://docs.google.com/document/d/14ko3wyXYOjgxRkarXn7FybXY_XA9rJkHFA4zmXFfZxU/edit?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="portfolio__item-link">
