@@ -7,9 +7,14 @@ import snap_2 from "../../assests/snapeda/snap_2.jpg";
 import snap_3 from "../../assests/snapeda/snap_3.jpg";
 import snap_4 from "../../assests/snapeda/snap_4.jpg";
 
-
-
 export const data = [
+    {
+        name: "Pentadata Inc",
+        active: true,
+        introduction: "Full-stack development across multiple Pentadata products, building user-facing features with React and scalable backend services using Python. Collaborated with cross-functional teams to design, implement, and ship new product features aligned with business objectives.",
+        techStack: ["ReactJS", "Python", "TypeScript", "RESTful API"],
+        link: "https://www.pentadata.com/"
+    },
     {
         name: "Thriill App",
         introduction:"I designed and developed the dynamic landing page for Thriilll, a modern music learning platform, using React.js with GTM integration and Prerendering for optimized SEO. Featuring captivating animations with tsParticles, the page offers a sleek, immersive experience. It includes smooth scroll-based interactions, vibrant visuals, and engaging CTAs, all while being fully responsive across devices.",

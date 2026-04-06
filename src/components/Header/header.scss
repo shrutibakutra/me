@@ -1,10 +1,45 @@
 @import "../../styles/colors.scss";
 @import "../../styles/styles.scss";
 
-.navbar-header {
-    margin-left: $gridSize * 4;
+.navbar-sticky {
+  position: sticky !important;
+  top: 0;
+  z-index: 500;
+  transition: box-shadow 0.3s;
 
-    .nav-link {
-        color: $color--gray800;
+  &.scrolled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.navbar-header {
+  margin-left: $gridSize * 4;
+
+  .nav-link {
+    color: $color--gray800;
+    position: relative;
+    padding-bottom: 4px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: $color--blue;
+      transition: width 0.3s ease;
     }
+
+    &:hover::after,
+    &.active-link::after {
+      width: 80%;
+    }
+
+    &.active-link {
+      color: $color--blue;
+      font-weight: 600;
+    }
+  }
 }

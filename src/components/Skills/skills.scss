@@ -8,10 +8,9 @@
     font-size: $gridSize * 6;
     margin-bottom: $gridSize * 4;
 
-
     @media (max-width: $xsmallcreen) {
       font-size: $gridSize * 4;
-  }
+    }
   }
 
   &__title::after {
@@ -19,7 +18,6 @@
     display: inline-block;
     margin-left: $gridSize * 3;
     vertical-align: middle;
-    width: 0;
     height: 2px;
     background: linear-gradient(to right, $color--gray600 0%, $color--blue 100%, #fff 100%);
     opacity: 1;
@@ -29,102 +27,74 @@
     @media (max-width: $xsmallcreen) {
       width: $gridSize * 24;
     }
+
     @media (max-width: $xxsmallScreen) {
       width: $gridSize * 18;
+    }
   }
-} 
 
-  &__nav-flex {
+  &__cloud {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: $gridSize * 3;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: $smallScreen) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $xsmallcreen) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__group {
+    background: white;
+    border-radius: $gridSize;
+    padding: $gridSize * 2;
+    box-shadow: 0 2px 8px rgba(50, 50, 93, 0.08);
+  }
+
+  &__group-label {
+    font-size: $gridSize * 1.75;
+    font-weight: 700;
+    color: $color--gray600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: $gridSize * 1.5;
+  }
+
+  &__group-tags {
+    display: flex;
+    flex-wrap: wrap;
     gap: $gridSize;
+  }
 
-    &__nav-item {
-      cursor: pointer;
-      margin-bottom: $gridSize;
+  &__tag {
+    display: inline-block;
+    padding: 4px $gridSize * 1.5;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    background-color: var(--tag-color, #{$color--blue});
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
 
-      .nav-link.active {
-        background-color: $color--blue;
-      }
-
-      .nav-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-
-    &__ul {
-      padding-left: 0px !important;
-      list-style-type: none;
-      margin-top: $gridSize * 3;
-
-      &__li {
-        font-size: 2 * $gridSize;
-        margin-bottom: $gridSize;
-        padding: $gridSize $gridSize $gridSize 0;
-        border-radius: 2px;
-        width: 30%;
-        color: $color--gray800;
-        display: flex;
-        box-shadow: 0 2px 4px rgba(50, 50, 93, .1);
-        animation: fadeInUp 2s forwards;
-        opacity: 0;        
-        transform: translateX(-200px) ;
-
-        &:hover{
-          background: linear-gradient(to right, $color--blue 0%, 50%, #fff 100%);
-          transform: translateX(10px) !important;
-          box-shadow: 0 4px 8px rgba(50, 50, 93, 0.2);
-        }
-
-        &__arrow {
-          background-color: $color--blue;
-          margin: -8px 8px -8px 0;
-          padding: 4px;
-          border-radius: 2px;
-          display: flex;
-          align-items: center;
-          color: #fff;
-        }
-      }
-
-      li:nth-of-type(1) {
-        animation-delay: 0.5s;
-      }
-      li:nth-of-type(2) {
-        animation-delay: 1s;
-      }
-      li:nth-of-type(3) {
-        animation-delay: 1.5s;
-      }
-      li:nth-of-type(4) {
-        animation-delay: 2s;
-      }
-    }
-  
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
   }
 
   @media (max-width: $smallScreen) {
     padding: $gridSize * 2;
-
-    &__nav-flex {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-
-      &__ul {
-        &__li {
-          width: 100%;
-        }
-      }
-    }
   }
 }

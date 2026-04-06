@@ -6,6 +6,15 @@ const Portfolio = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeProject, setActiveProject] = useState<string[]>([]);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
+
+    const toggleExpand = (index: number) => {
+        setExpandedCards(prev => {
+            const next = new Set(prev);
+            next.has(index) ? next.delete(index) : next.add(index);
+            return next;
+        });
+    };
 
     const openModal = (media: string[]) => {
         setActiveProject(media);
@@ -26,49 +35,80 @@ const Portfolio = () => {
         setActiveIndex((prevIndex) => (prevIndex - 1 + activeProject.length) % activeProject.length);
     };
 
+    const getThumbnail = (project: any): string | null => {
+        if (project.knowMore?.length > 0 && !project.knowMore[0].endsWith('.mp4')) {
+            return project.knowMore[0];
+        }
+        return null;
+    };
+
     return (
         <div className="portfolio" id="portfolio">
             <div className="portfolio__title">Portfolio</div>
             <div className="portfolio__list">
-                {data.map((project: any, index) => (
-                    <div key={index} className="portfolio__item">
-                        <div className="portfolio__item-flex">
-                            <h3 className="portfolio__item-title">{project.name}</h3>
+                {data.map((project: any, index) => {
+                    const thumbnail = getThumbnail(project);
+                    return (
+                        <div key={index} className="portfolio__item">
+                            {thumbnail && (
+                                <div className="portfolio__item-thumb">
+                                    <img src={thumbnail} alt={project.name} />
+                                </div>
+                            )}
+                            <div className="portfolio__item-body">
+                                <div className="portfolio__item-flex">
+                                    <h3 className="portfolio__item-title">{project.name}</h3>
+                                    {project.active && (
+                                        <span className="portfolio__item-active">
+                                            <span className="portfolio__item-active__dot" />
+                                            Active
+                                        </span>
+                                    )}
+                                </div>
+                                <p className={`portfolio__item-intro${expandedCards.has(index) ? '' : ' portfolio__item-intro--clamped'}`}>
+                                    {project.introduction}
+                                </p>
+                                {project.introduction.length > 150 && (
+                                    <button className="portfolio__item-readmore" onClick={() => toggleExpand(index)}>
+                                        {expandedCards.has(index) ? 'Show less' : 'Read more'}
+                                    </button>
+                                )}
+                                <div className="portfolio__item-techstack">
+                                    <strong>Tech Stack:</strong>
+                                    <ul>
+                                        {project.techStack.map((tech: string, techIndex: React.Key) => (
+                                            <li key={techIndex}>{tech}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className="portfolio__item-actions">
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="portfolio__item-link">
+                                        Visit Project
+                                    </a>
+                                    {project.knowMore?.length > 0 && (
+                                        <button
+                                            className="portfolio__item-link"
+                                            onClick={() => openModal(project.knowMore)}>
+                                            Work Samples
+                                        </button>
+                                    )}
+                                    {project?.knowMoreLink && (
+                                        <button
+                                            className="portfolio__item-link"
+                                            onClick={() => window.open(project?.knowMoreLink, "_blank")}
+                                        >
+                                            Work Samples
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
                         </div>
-                        <p className="portfolio__item-intro">{project.introduction}</p>
-                        <div className="portfolio__item-techstack">
-                            <strong>Tech Stack:</strong>
-                            <ul>
-                                {project.techStack.map((tech: string, techIndex: React.Key) => (
-                                    <li key={techIndex}>{tech}</li>
-                                ))}
-                            </ul>
-                        </div>
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="portfolio__item-link">
-                            Visit Project
-                        </a>
-                        {project.knowMore?.length > 0 && (
-                            <button
-                                className="portfolio__item-link"
-                                onClick={() => openModal(project.knowMore)}>
-                                Work Samples
-                            </button>
-                        )}
-                         {project?.knowMoreLink && (
-                            <button
-                                className="portfolio__item-link"
-                                onClick={()=> window.open(project?.knowMoreLink, "_blank")}
-                                >
-                                Work Samples
-                            </button>
-                        )}
-                        
-                    </div>
-                ))}
+                    );
+                })}
             </div>
             {isModalOpen && (
                 <div className={`modal ${isModalOpen ? "open" : ""}`}>
@@ -99,7 +139,6 @@ const Portfolio = () => {
                     <div className="modal__overlay" onClick={closeModal}></div>
                 </div>
             )}
-
         </div>
     );
 };

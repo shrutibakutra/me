@@ -2,3 +2,13 @@ body {
   /* font-family: "Lato", sans-serif; */
   font-optical-sizing: auto;
 }
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #4388b3;
+  z-index: 9999;
+  transition: width 0.1s linear;
+}

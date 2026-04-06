@@ -4,65 +4,35 @@ import Hiking from "../../assests/hiking.jpg";
 import Climbing from "../../assests/climbing3.jpg";
 import Reading from "../../assests/reading.jpg";
 import Travelling from "../../assests/travelling.jpg";
-import { useInView, InView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
+
+const hobbies = [
+    { label: "Hiking", img: Hiking },
+    { label: "Climbing", img: Climbing },
+    { label: "Reading", img: Reading },
+    { label: "Travelling", img: Travelling },
+];
 
 const Hobbies = () => {
-    const { ref } = useInView({
-        threshold: 0,
-        triggerOnce: true
-    });
-
-    const Component = ({ children }: any) => (
-        <InView triggerOnce>
-            {({ inView, ref, entry }) => (
-                <div ref={ref}>
-                    {children}
-                </div>
-            )}
-        </InView>
-    );
+    const { ref, inView } = useInView({ threshold: 0, triggerOnce: true });
 
     return (
         <div className="hobbies">
             <div className="hobbies__title" ref={ref}>
-                Like to do
+                Hobbies
             </div>
-            <Component>
-
-                <div className="hobbies__list">
-                    <div className="hobbies__list__box">
-                        <div className="hobbies__list__box__title">
-                            Hiking
-                        </div>
-                        <div>
-                            <img src={Hiking} />
+            <div className={`hobbies__list${inView ? ' hobbies__list--visible' : ''}`}>
+                {hobbies.map(({ label, img }) => (
+                    <div key={label} className="hobbies__list__box">
+                        <img src={img} alt={label} />
+                        <div className="hobbies__list__box__overlay">
+                            <span>{label}</span>
                         </div>
                     </div>
-                    <div className="hobbies__list__box">
-                        <div className="hobbies__list__box__title">
-                            Climbing
-                        </div>
-                        <div>
-                            <img src={Climbing} />
-                        </div>
-                    </div>
-                    <div className="hobbies__list__box">
-                        <div className="hobbies__list__box__title">Reading</div>
-                        <div>
-                            <img src={Reading} />
-                        </div>
-                    </div>
-                    <div className="hobbies__list__box">
-                        <div className="hobbies__list__box__title">
-                            Travelling
-                        </div>
-                        <div>
-                            <img src={Travelling} />
-                        </div>
-                    </div>
-                </div>
-            </Component>
+                ))}
+            </div>
         </div>
-    )
-}
+    );
+};
+
 export default Hobbies;
