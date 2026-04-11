@@ -19,7 +19,6 @@
         display: inline-block;
         margin-left: $gridSize * 3;
         vertical-align: middle;
-        width: 0;
         height: 2px;
         background: linear-gradient(to right, $color--gray600 0%, $color--blue 100%, #fff 100%);
         opacity: 1;
@@ -39,22 +38,54 @@
         }
     }
 
+    // ── Bento grid ──────────────────────────────────────────
     &__list {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(220px, auto);
         gap: $gridSize * 2;
     }
 
     &__item {
         background-color: white;
-        border-radius: $gridSize;
-        transition: transform 0.3s;
+        border-radius: $gridSize * 1.5;
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        transition: transform 0.3s, box-shadow 0.3s;
 
         &:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(67, 136, 179, 0.12);
+        }
+
+        // Large: 2 cols × 2 rows — Pentadata
+        &--large {
+            grid-column: span 2;
+            grid-row: span 2;
+            background: linear-gradient(135deg, #eaf4fb 0%, #f5f9fd 60%, #fff 100%);
+
+            .portfolio__item-body {
+                padding: $gridSize * 3;
+            }
+
+            .portfolio__item-title {
+                font-size: $gridSize * 4;
+            }
+
+            .portfolio__item-intro {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+        }
+
+        // Wide: 2 cols × 1 row — Terrace Metrics
+        &--wide {
+            grid-column: span 2;
+
+            .portfolio__item-thumb {
+                height: $gridSize * 22;
+            }
         }
 
         &-thumb {
@@ -82,21 +113,17 @@
             flex: 1;
         }
 
-        &-actions {
-            margin-top: auto;
-            padding-top: $gridSize;
-        }
-
         &-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: $gridSize;
         }
 
         &-title {
             font-size: $gridSize * 3;
             font-weight: 600;
-            margin-bottom: $gridSize;
+            margin: 0;
             color: $color--blue;
         }
 
@@ -110,6 +137,7 @@
             background-color: #edfaf3;
             padding: 3px $gridSize * 1.5;
             border-radius: 20px;
+            white-space: nowrap;
 
             &__dot {
                 width: 7px;
@@ -122,13 +150,14 @@
 
         @keyframes pulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(45, 158, 95, 0.5); }
-            50% { box-shadow: 0 0 0 5px rgba(45, 158, 95, 0); }
+            50%       { box-shadow: 0 0 0 5px rgba(45, 158, 95, 0); }
         }
 
         &-intro {
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-bottom: $gridSize * 0.5;
             color: $color--gray800;
+            line-height: 1.6;
 
             &--clamped {
                 display: -webkit-box;
@@ -153,34 +182,46 @@
         }
 
         &-techstack {
-            font-size: $gridSize * 2;
+            margin-top: auto;
             margin-bottom: $gridSize;
 
             ul {
                 list-style-type: none;
                 padding: 0;
+                margin: 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
             }
 
             li {
-                display: inline-block;
-                margin-right: 5px;
-                background-color: #eee;
+                background-color: #eef5fb;
+                color: $color--blue;
                 padding: 2px $gridSize;
                 border-radius: 4px;
-                font-size: 12px;
+                font-size: 11px;
+                font-weight: 500;
             }
+        }
+
+        &-actions {
+            padding-top: $gridSize;
+            display: flex;
+            flex-wrap: wrap;
+            gap: $gridSize * 0.5;
         }
 
         &-link {
             display: inline-block;
-            padding: $gridSize 2 * $gridSize;
+            padding: $gridSize $gridSize * 2;
             background-color: $color--white;
             color: $color--blue;
             text-decoration: none;
-            border-radius: 2px;
-            transition: background-color 0.3s;
+            border-radius: 4px;
+            font-size: 13px;
+            transition: background-color 0.2s, color 0.2s;
             border: 1px solid $color--blue;
-            margin-right: $gridSize;
+            cursor: pointer;
 
             &:hover {
                 background-color: $color--blue;
@@ -189,9 +230,15 @@
         }
     }
 
+    // ── Responsive ──────────────────────────────────────────
     @media (max-width: $smallScreen) {
         &__list {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__item {
+            &--large { grid-column: span 2; grid-row: span 1; }
+            &--wide  { grid-column: span 2; }
         }
     }
 
@@ -200,11 +247,18 @@
         margin-top: $gridSize * 3;
 
         &__list {
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: 1fr;
+            grid-auto-rows: auto;
+        }
+
+        &__item {
+            &--large { grid-column: span 1; grid-row: span 1; }
+            &--wide  { grid-column: span 1; }
         }
     }
 }
 
+// ── Modal ────────────────────────────────────────────────────
 .modal {
     position: fixed;
     top: 0;
@@ -215,7 +269,6 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-
     opacity: 0;
     visibility: hidden;
     transition: opacity 1s ease, visibility 1s ease;
@@ -243,19 +296,12 @@
         width: 80%;
         max-width: 1080px;
         text-align: center;
-
         animation: modalFadeIn 1s ease;
     }
 
     @keyframes modalFadeIn {
-        from {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
+        from { opacity: 0; transform: scale(0.9); }
+        to   { opacity: 1; transform: scale(1); }
     }
 
     &__close {
@@ -288,23 +334,11 @@
         background-color: rgba(0, 0, 0, 0.5);
         color: white;
         border: none;
-        padding: $gridSize 2 * $gridSize;
-        font-size: 2 * $gridSize;
+        padding: $gridSize $gridSize * 2;
+        font-size: $gridSize * 2;
         border-radius: 50%;
     }
 
-    &__prev {
-        left: 10px;
-    }
-
-    &__next {
-        right: 10px;
-    }
-}
-
-.star {
-    width: $gridSize * 3;
-    aspect-ratio: 1;
-    background: #f8ca00;
-    clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+    &__prev { left: 10px; }
+    &__next { right: 10px; }
 }

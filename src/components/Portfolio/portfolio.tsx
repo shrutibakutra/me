@@ -48,8 +48,12 @@ const Portfolio = () => {
             <div className="portfolio__list">
                 {data.map((project: any, index) => {
                     const thumbnail = getThumbnail(project);
+                    const size = project.size || 'normal';
+                    const isExpanded = expandedCards.has(index);
+                    const isLarge = size === 'large';
+
                     return (
-                        <div key={index} className="portfolio__item">
+                        <div key={index} className={`portfolio__item portfolio__item--${size}`}>
                             {thumbnail && (
                                 <div className="portfolio__item-thumb">
                                     <img src={thumbnail} alt={project.name} />
@@ -65,16 +69,15 @@ const Portfolio = () => {
                                         </span>
                                     )}
                                 </div>
-                                <p className={`portfolio__item-intro${expandedCards.has(index) ? '' : ' portfolio__item-intro--clamped'}`}>
+                                <p className={`portfolio__item-intro${!isExpanded && !isLarge ? ' portfolio__item-intro--clamped' : ''}`}>
                                     {project.introduction}
                                 </p>
-                                {project.introduction.length > 150 && (
+                                {!isLarge && project.introduction.length > 150 && (
                                     <button className="portfolio__item-readmore" onClick={() => toggleExpand(index)}>
-                                        {expandedCards.has(index) ? 'Show less' : 'Read more'}
+                                        {isExpanded ? 'Show less' : 'Read more'}
                                     </button>
                                 )}
                                 <div className="portfolio__item-techstack">
-                                    <strong>Tech Stack:</strong>
                                     <ul>
                                         {project.techStack.map((tech: string, techIndex: React.Key) => (
                                             <li key={techIndex}>{tech}</li>
