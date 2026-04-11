@@ -20,10 +20,6 @@ const Contact = () => {
                         <a href="mailto:shruti15bakutra@gmail.com">shruti15bakutra@gmail.com</a>
                     </div>
                     <div>
-                        <div className="contact__content__details__title">Skype</div> 
-                        <a href="skype:live:shruti15bakutra?chat">shruti15bakutra</a>
-                    </div>
-                    <div>
                         <div className="contact__content__details__title"> LinkedIn</div>
                         <a href="https://www.linkedin.com/in/shruti-bakutra-037829156/" target="_blank" rel="noopener noreferrer">shruti-bakutra-037829156</a>
                     </div>
