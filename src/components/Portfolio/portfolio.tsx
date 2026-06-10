@@ -7,6 +7,7 @@ const Portfolio = () => {
     const [activeProject, setActiveProject] = useState<string[]>([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
+    const [carouselIndexes, setCarouselIndexes] = useState<Record<number, number>>({});
 
     const toggleExpand = (index: number) => {
         setExpandedCards(prev => {
@@ -16,9 +17,9 @@ const Portfolio = () => {
         });
     };
 
-    const openModal = (media: string[]) => {
+    const openModal = (media: string[], startIndex = 0) => {
         setActiveProject(media);
-        setActiveIndex(0);
+        setActiveIndex(startIndex);
         setIsModalOpen(true);
     };
 
@@ -35,11 +36,17 @@ const Portfolio = () => {
         setActiveIndex((prevIndex) => (prevIndex - 1 + activeProject.length) % activeProject.length);
     };
 
-    const getThumbnail = (project: any): string | null => {
-        if (project.knowMore?.length > 0 && !project.knowMore[0].endsWith('.mp4')) {
-            return project.knowMore[0];
-        }
-        return null;
+    const getCarouselImages = (project: any): string[] =>
+        (project.knowMore || []).filter((item: string) => !item.endsWith('.mp4'));
+
+    const getCardIndex = (cardIndex: number) => carouselIndexes[cardIndex] || 0;
+
+    const stepCard = (e: React.MouseEvent, cardIndex: number, total: number, dir: 1 | -1) => {
+        e.stopPropagation();
+        setCarouselIndexes(prev => ({
+            ...prev,
+            [cardIndex]: ((prev[cardIndex] || 0) + dir + total) % total,
+        }));
     };
 
     return (
@@ -47,16 +54,41 @@ const Portfolio = () => {
             <div className="portfolio__title">Portfolio</div>
             <div className="portfolio__list">
                 {data.map((project: any, index) => {
-                    const thumbnail = getThumbnail(project);
+                    const images = getCarouselImages(project);
+                    const cardIdx = getCardIndex(index);
                     const size = project.size || 'normal';
                     const isExpanded = expandedCards.has(index);
                     const isLarge = size === 'large';
+                    const hasVideos = (project.knowMore || []).some((m: string) => m.endsWith('.mp4'));
 
                     return (
                         <div key={index} className={`portfolio__item portfolio__item--${size}`}>
-                            {thumbnail && (
-                                <div className="portfolio__item-thumb">
-                                    <img src={thumbnail} alt={project.name} />
+                            {images.length > 0 && (
+                                <div
+                                    className="portfolio__item-thumb portfolio__item-thumb--carousel"
+                                    onClick={() => openModal(project.knowMore, project.knowMore.indexOf(images[cardIdx]))}
+                                >
+                                    <img src={images[cardIdx]} alt={`${project.name} ${cardIdx + 1}`} />
+                                    {images.length > 1 && (
+                                        <>
+                                            <button
+                                                className="portfolio__item-thumb__nav portfolio__item-thumb__nav--prev"
+                                                onClick={(e) => stepCard(e, index, images.length, -1)}
+                                            >&#10094;</button>
+                                            <button
+                                                className="portfolio__item-thumb__nav portfolio__item-thumb__nav--next"
+                                                onClick={(e) => stepCard(e, index, images.length, 1)}
+                                            >&#10095;</button>
+                                            <div className="portfolio__item-thumb__dots">
+                                                {images.map((_, i) => (
+                                                    <span
+                                                        key={i}
+                                                        className={`portfolio__item-thumb__dot${i === cardIdx ? ' portfolio__item-thumb__dot--active' : ''}`}
+                                                    />
+                                                ))}
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             )}
                             <div className="portfolio__item-body">
@@ -92,11 +124,11 @@ const Portfolio = () => {
                                         className="portfolio__item-link">
                                         Visit Project
                                     </a>
-                                    {project.knowMore?.length > 0 && (
+                                    {hasVideos && (
                                         <button
                                             className="portfolio__item-link"
                                             onClick={() => openModal(project.knowMore)}>
-                                            Work Samples
+                                            Watch Demo
                                         </button>
                                     )}
                                     {project?.knowMoreLink && (

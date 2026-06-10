@@ -6,6 +6,10 @@ import snap_1 from "../../assests/snapeda/snap_1.jpg";
 import snap_2 from "../../assests/snapeda/snap_2.jpg";
 import snap_3 from "../../assests/snapeda/snap_3.jpg";
 import snap_4 from "../../assests/snapeda/snap_4.jpg";
+import dm_1 from "../../assests/dealmtrx/dm_1.png";
+import dm_2 from "../../assests/dealmtrx/dm_2.png";
+import dm_3 from "../../assests/dealmtrx/dm_3.png";
+import dm_4 from "../../assests/dealmtrx/dm_4.png";
 
 export const data = [
     {
@@ -14,23 +18,24 @@ export const data = [
         active: true,
         introduction: "Full-stack development across multiple Pentadata products, building user-facing features with React and scalable backend services using Python. Collaborated with cross-functional teams to design, implement, and ship new product features aligned with business objectives.",
         techStack: ["ReactJS", "Python", "TypeScript", "RESTful API"],
-        link: "https://www.pentadata.com/"
+        link: "https://www.pentadatainc.com/"
     },
-    {
-        name: "Terrace Metrics",
-        size: "wide",
-        introduction: "Health assessments product for schools and workplaces, providing data-driven insights to support mental health and well-being.",
-        techStack: ["ReactJS", "MongoDB", "NodeJS", "JavaScript", "Actionally"],
-        link: "https://app.terracemetrics.org",
-        knowMore: [tm1, tm2, tm3, TM4]
-    },
-    {
+        {
         name: "DealMtrx",
+        size: "wide",
         start: true,
         introduction: "DealMtrx a product by PE Connection, to simplify the process for Borrowers to grow and manage Lender relationships.",
         techStack: ["ReactJS", "TypeScript", "MongoDB", "Docker", "Cypress", "JavaScript"],
         link: "https://app.dealmtrx.com/",
-        knowMoreLink: "https://gist.github.com/shrutibakutra/ab8b98483c9ea97db5caf2a874caa149"
+        knowMoreLink: "https://gist.github.com/shrutibakutra/ab8b98483c9ea97db5caf2a874caa149",
+        knowMore: [dm_1, dm_2, dm_3, dm_4]
+    },
+    {
+        name: "Terrace Metrics",
+        introduction: "Health assessments product for schools and workplaces, providing data-driven insights to support mental health and well-being.",
+        techStack: ["ReactJS", "MongoDB", "NodeJS", "JavaScript", "Actionally"],
+        link: "https://app.terracemetrics.org",
+        knowMore: [tm1, tm2, tm3, TM4]
     },
     {
         name: "Snapeda Plugin",
