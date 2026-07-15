@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const roles = ["Software Developer", "Front-End Engineer", "React Developer"];
+const roles = ["Client Relations", "Software Developer", "Front-End Engineer"];
 
 const Contents = () => {
     const [roleIndex, setRoleIndex] = useState(0);
@@ -33,13 +33,16 @@ const Contents = () => {
             </div>
             <div className="aboutme__content__inside__details">
                 <div>
-                    Hi! I'm Shruti, a software developer with over 5 years of experience, specializing in front-end development. I'm passionate about building beautiful and efficient web applications, primarily using JavaScript and React.
+                    Hi! I'm Shruti, a software developer with over 6 years of experience, specializing in front-end development. I'm passionate about building beautiful and efficient web applications, primarily using JavaScript and React.
                 </div>
-                <div>
+                  <div>
+                    Alongside development, I've spent much of my career working closely with clients, from leading product demos to serving as the go-to technical contact for key accounts. I enjoy the moments where I get to translate technical work into something clear and useful for the people using it.
+                </div>
+                {/* <div>
                     I hold a degree in Physics, which has sharpened my problem-solving skills and attention to detail. I love making the web more accessible and enjoyable for everyone.
-                </div>
+                </div>  */}
                 <div>
-                    I'm always excited to collaborate on new projects and explore job opportunities that align with my expertise. If you're looking for a dedicated front-end developer, I'd love to chat!
+                    I'm always excited to collaborate on new projects and explore job opportunities that align with my expertise. If you're looking for someone who blends technical depth with client-facing skills, I'd love to chat!
                 </div>
             </div>
             <div>

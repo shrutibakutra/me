@@ -16,8 +16,9 @@ export const data = [
         name: "Pentadata Inc",
         size: "wide",
         active: true,
-        introduction: "Full-stack development across multiple Pentadata products, building user-facing features with React and scalable backend services using Python. Collaborated with cross-functional teams to design, implement, and ship new product features aligned with business objectives.",
-        techStack: ["ReactJS", "Python", "TypeScript", "RESTful API"],
+        introduction: "Full-stack development across multiple Pentadata products, building user-facing features with React and scalable backend services using Python. Serve as the primary technical point of contact for client accounts, translating business needs into product solutions and answering technical questions from prospects and clients. Collaborated with cross-functional teams to design, implement, and ship new features aligned with business objectives.",
+        // introduction: "Full-stack development across multiple Pentadata products, building user-facing features with React and scalable backend services using Python. Collaborated with cross-functional teams to design, implement, and ship new product features aligned with business objectives.",
+        techStack: ["Client communication", "demo", "ReactJS", "Python", "TypeScript", "RESTful API"],
         link: "https://www.pentadatainc.com/"
     },
         {
@@ -25,7 +26,7 @@ export const data = [
         size: "wide",
         start: true,
         introduction: "DealMtrx a product by PE Connection, to simplify the process for Borrowers to grow and manage Lender relationships.",
-        techStack: ["ReactJS", "TypeScript", "MongoDB", "Docker", "Cypress", "JavaScript"],
+        techStack: ["Stakeholder communication", "ReactJS", "TypeScript", "MongoDB", "Docker", "Cypress", "JavaScript"],
         link: "https://app.dealmtrx.com/",
         knowMoreLink: "https://gist.github.com/shrutibakutra/ab8b98483c9ea97db5caf2a874caa149",
         knowMore: [dm_1, dm_2, dm_3, dm_4]
